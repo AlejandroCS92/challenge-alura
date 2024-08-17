@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="atylesheet" href="./styles/style.css"/>
+    <title>Challenge Alura - Alejandro Colmenares</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="./assets/Logo.png" alt="Logo Alura">
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="cuadro__ingresa__texto">
+                <input type="text">
+            </div>
+            <div class="texto__restringido" >
+
+                <p class="info__text"> <span class="icono"></span>
+                <img src="./assets/bi_exclamation-circle-fill.png" alt="signo__exclamacion">
+                </span>Solo letras minúsculas y sin acentos </p>
+            <div class="botones">
+                <button class="boton__encriptar" onclick="mostrarEncriptado()">Encriptar</button>
+                <button class="boton__desencriptar" onclick="mostrarDesencriptado()">Desencriptar</button>
+            </div>
+    </section>
+        <section id="cuadro__texto" class="rectangulo__texto__incriptado">
+            <div class="imagen__muneco">
+                <img src="./assets/Muñeco.png" alt="imagen Muñeco">
+
+            </div>
+            <div class="texto">
+                <h2 class="texto__muneco">Ningun mensaje fue encontrado</h2>
+                <p class="texto__incativo">Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+            <p>Developed by <a class="footer__link__nombre" href="https://www.linkedin.com/">Alejandro Colmenares</a></p>
+    </footer>
+</body>
+<script src="./app.js"></script>
+</html>
