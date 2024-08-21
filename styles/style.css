@@ -3,10 +3,11 @@
 :root{
 
     --color-primario:#E5E5E5;
-    --color-segundario:white;
+    --color-secundario:white;
+    --color-terciario: #0A3871;
     --text-color:#000000;
     
-    --fuente-montserrat: "Inter", sans-serif;
+    --fuente-Inter: "Inter", sans-serif;
 }
 
 * {
@@ -27,8 +28,9 @@ body{
 
 .contenido{
     display: flex;
+    box-sizing: border-box;
     /* align-items: center; */
-    padding: 5% 15%;
+    padding: 0.5rem 2rem 0 2rem;
     justify-content: space-between;
     gap: 183px;
 }
@@ -36,25 +38,78 @@ body{
 .cuadro__ingresa__texto{
     background: var(--color-primario);
     width: 100%;
-    height: 100%;
-    padding: 1rem;
+    height: 40%;
+    padding-top: 80px;
     font-family: "Inter", sans-serif;
     color: var(--text-color);
+    font-size: 168px 240px;
+    font-weight: 400;
+}
+
+.input__ingresa__texto{
+    background: var(--color-primario);
+    padding-left: 240px;
     font-size: 1.5em;
     font-weight: 400;
+    font-family: var(--fuente-Inter);
     box-sizing: border-box;
     border: none;
     resize: none;
     outline: none;
 }
 
-.input__ingresa__texto{
-    background: var(--color-primario);
-    font-size: 1.5em;
-    font-weight: 400;
+.texto__restringido{
     font-family: "Inter", sans-serif;
-    box-sizing: border-box;
-    border: none;
-    resize: none;
-    outline: none;
+    padding-left: 240px;
+    color: var(--text-color);
+    font-size: 0.5em;
+}
+
+.img__texto__restringido{
+    width: 10px;
+    height: 10px;
+}
+
+.botones{
+    display: flex;
+    padding-top: 16px;
+    padding-left: 240px;
+    gap: 24px;
+}
+
+.boton__encriptar{
+    width: 328px;
+    height: 67px;
+    background-color: var(--color-terciario);
+    color: var(--color-secundario);
+    padding: 24px;
+    border-radius: 24px;
+    font-family: var(--fuente-Inter);
+    font-size: 0.75rem;
+}
+
+.boton__desencriptar{
+    width: 328px;
+    height: 67px;
+    background-color: var(--color-primario);
+    color: var(--color-terciario);
+    border-radius: 24px;
+    border: 1px solid var(--color-terciario);
+}
+
+.rectangulo__texto__encriptado{
+    background-color: var(--color-secundario);
+    width: 400px;
+    height: 940px;
+    border-radius: 32px;
+    justify-content: center;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    justify-content: center;
 }
