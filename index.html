@@ -14,18 +14,20 @@
         </nav>
     </header>
     <main class="contenido">
-        <section>
+        <section class="ingresar__texto__botones">
             <div class="cuadro__ingresa__texto">
                 <input class="input__ingresa__texto" type="text" placeholder="Ingrese el texto aquí">
             </div>
-            <div class="texto__restringido" >
-                <p class="info__text"> <span class="icono"></span>
-                <img class="img__texto__restringido" src="./assets/bi_exclamation-circle-fill.png" alt="signo__exclamacion">
-                </span>Solo letras minúsculas y sin acentos </p>
-            </div>
-            <div class="botones">
+            <div class="div__texto__botones">
+                <div class="texto__restringido" >
+                    <p class="info__text"> <span class="icono"></span>
+                    <img class="img__texto__restringido" src="./assets/bi_exclamation-circle-fill.png" alt="signo__exclamacion">
+                    </span>Solo letras minúsculas y sin acentos </p>
+                </div>
+                <div class="botones">
                 <button class="boton__encriptar" onclick="mostrarEncriptado()">Encriptar</button>
                 <button class="boton__desencriptar" onclick="mostrarDesencriptado()">Desencriptar</button>
+                </div>
             </div>
     </section>
         <section id="cuadro__texto" class="rectangulo__texto__encriptado">
@@ -39,7 +41,7 @@
             </div>
         </section>
     </main>
-    <footer>
+    <footer class="footer">
             <p>Developed by <a class="footer__link__nombre" href="https://www.linkedin.com/">Alejandro Colmenares</a> 2024</p>
     </footer>
 </body>
