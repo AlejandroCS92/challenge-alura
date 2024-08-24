@@ -1,92 +1,59 @@
-/* ============ Funciones de Encriptación/Desencriptación ============ */
-function prepareSpace(frase) {
-    /* Insertamos textarea con el mensaje encriptado/desencriptado y boton de copiar */
-    document.getElementById("cuadro__texto").innerHTML = `
-        <input id="output" class="output" rows="10" readonly></input>
-        <button class="boton__copiar" onclick="copiar()">Copiar</button> `;
+const d = document;
+const input = d.querySelector('.input__ingresa__texto');
+const imagenMuneco = d.querySelector('.imagen__muneco');
+const resultadoTitulo = d.querySelector('.texto__muneco');
+const resultadoTexto = d.querySelector('.texto__incativo');
+const botonEncriptar = d.querySelector('.boton__encriptar');
+const botonDesncriptar = d.querySelector('.boton__desencriptar');
+const botonCopiar = d.querySelector('.boton__copiar');
 
-}
+const llaves = [
+    ['e', 'enter'],
+    ['i', 'imes'],
+    ['a', 'ai'],
+    ['o', 'ober'],
+    ['u', 'ufat']
+];
 
-function validacion(frase) {
-    /* Expresión regular para encontrar mayúsculas y carácteres con acento */
-    let regex = /[A-ZÀ-ú]/;
-    return (!regex.test(frase) && frase != '');
-}
+// Funcion Encriptar 
 
-
-  /*Funcion para la alerta de validacion de frase*/
-function mostrarModal(mensaje) {
-    document.getElementById('modal-message').innerText = mensaje;
-    document.getElementById('modal').style.display = 'block';
-}
-
-function cerrarModal() {
-    document.getElementById('modal').style.display = 'none';
-    document.getElementById('input').value = ''; // Limpiar el campo de entrada
-}
-
-
-
-function encriptar(frase) {
-    /* Remplazamos todas las vocales por las claves de encriptación */
-    let newFrase = frase.replace(/e/g, 'enter')
-        .replace(/i/g, 'imes')
-        .replace(/a/g, 'ai')
-        .replace(/o/g, 'ober')
-        .replace(/u/g, 'ufat');
-
-    /* Devolvemos la frase encriptada */
-    return newFrase;
-}
-
-function desencriptar(frase) {
-    /* Remplazamos las letras encriptadas por sus respectivas vocales*/
-    let newFrase = frase.replace(/enter/g, 'e')
-        .replace(/imes/g, 'i')
-        .replace(/ai/g, 'a')
-        .replace(/ober/g, 'o')
-        .replace(/ufat/g, 'u');
-
-    /* Devolvemos la frase desencriptada */
-    return newFrase;
-}
-
-function mostrarEncriptado() {
-    /* Obtenemos el contenido de Textarea */
-
-    let frase = document.getElementById("input").value;
-
-
-    if(validacion(frase)) {
-        /* Mostramos el elemento html con el contenido del mensaje */
-        prepareSpace(frase);
-
-        /* Agregamos la frase encriptada al elemento html */
-        document.getElementById("output").value = encriptar(frase);
-    } else {
-        mostrarModal('El texto contiene mayúsculas,caracteres especiales o no ingreso ningun texto .');
+function encriptarMensaje(mensaje){
+    let mensajeEncriptado = '';
+    for(let i = 0; i < mensaje.length; i++){
+        let letra = mensaje[i];
+        let encriptada = letra;
+        for( let j = 0; j < llaves.length; j++){
+            if(letra === llaves[j][0]){
+                encriptada = llaves[j][1];
+                break;
+            }
+        }
+        mensajeEncriptado += encriptada;    
     }
-
+    return mensajeEncriptado;
 }
 
-function mostrarDesencriptado() {
-    /* Obtenemos el contenido de Textarea */
-    let frase = document.getElementById("input").value;
+// Funcion Desncriptar
 
-    if(validacion(frase)) {
-        /* Mostramos el elemento html con el contenido del mensaje */
-        prepareSpace(frase);
-
-        /* Agregamos la frase desencriptada al elemento html */
-        document.getElementById("output").value = desencriptar(frase);
-    } else {
-        mostrarModal('El texto contiene mayúsculas,caracteres especiales o no ingreso ningun texto.');
+function desencriptarMensaje(mensaje){
+    let mensajeDesencriptado = mensaje;
+    for(let i = 0; i < mensaje.length; i++){
+        let regex = new RegExp(llaves[i][1], 'g');
+        mensajeDesencriptado = mensajeDesencriptado.replace(regex, llaves[i][0]);
     }
+    return mensajeDesencriptado;
 }
-function copiar() {
-    let copyText = document.getElementById('output');
-    copyText.select();
-    document.execCommand('copy');
-    document.getElementById('input').value = ''; // Borra el contenido del textarea al copiar
 
-}
+input.addEventListener('input', (e) => {
+    imagenMuneco.style.display = 'none';
+    resultadoTitulo.textContent = 'Capturando texto';
+    resultadoTexto.textContent = '';
+})
+
+botonEncriptar.addEventListener('click', (e) => {
+    e.preventDefault();
+    let mensaje = input.value.toLowerCase();
+    let mensajeEncriptado = encriptarMensaje(mensaje);
+    resultadoTexto.textContent = mensajeEncriptado;
+    botonCopiar.classList.remove('hidden');
+})

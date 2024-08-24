@@ -16,7 +16,7 @@
     <main class="contenido">
         <section class="ingresar__texto__botones">
             <div class="cuadro__ingresa__texto">
-                <input class="input__ingresa__texto" type="text" placeholder="Ingrese el texto aquí">
+                <input class="input__ingresa__texto" type="text" name="mensaje" placeholder="Ingrese el texto aquí">
             </div>
             <div class="div__texto__botones">
                 <div class="texto__restringido" >
@@ -25,8 +25,8 @@
                     </span>Solo letras minúsculas y sin acentos </p>
                 </div>
                 <div class="botones">
-                <button class="boton__encriptar" onclick="mostrarEncriptado()">Encriptar</button>
-                <button class="boton__desencriptar" onclick="mostrarDesencriptado()">Desencriptar</button>
+                <button class="boton__encriptar">Encriptar</button>
+                <button class="boton__desencriptar">Desencriptar</button>
                 </div>
             </div>
     </section>
@@ -38,6 +38,7 @@
             <div class="texto">
                 <h2 class="texto__muneco">Ningun mensaje fue encontrado</h2>
                 <p class="texto__incativo">Ingresa el texto que desees encriptar o desencriptar.</p>
+                <button class="boton__copiar hidden" >Copiar</button>
             </div>
         </section>
     </main>

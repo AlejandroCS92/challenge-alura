@@ -23,6 +23,10 @@ body{
     color: var(--color-secundario);
 }
 
+.hidden{
+    display: none;
+}
+
 /* header  */
 
 .nav__img{
@@ -54,7 +58,7 @@ body{
     height: 800px;
     padding-top: 80px;
     font-family: "Inter", sans-serif;
-    color: var(--text-color);
+    color: var(--color-terciario);
     font-size: 168px 240px;
     font-weight: 400;
 }
@@ -65,6 +69,7 @@ body{
     font-size: 1.5em;
     font-weight: 400;
     font-family: var(--fuente-Inter);
+    color: var(--color-terciario);
     box-sizing: border-box;
     border: none;
     resize: none;
@@ -111,6 +116,15 @@ body{
     width: 328px;
     height: 67px;
     background-color: var(--color-primario);
+    color: var(--color-terciario);
+    border-radius: 24px;
+    border: 1px solid var(--color-terciario);
+}
+
+.boton__copiar{
+    width: 328px;
+    height: 67px;
+    background-color: var(--color-secundario);
     color: var(--color-terciario);
     border-radius: 24px;
     border: 1px solid var(--color-terciario);
@@ -212,6 +226,10 @@ body{
         width: 332px;
     }
 
+    .boton__copiar{
+        width: 332px;
+    }
+
     .rectangulo__texto__encriptado{
         width: 688px;
         height: 133px;
@@ -233,7 +251,7 @@ body{
     .nav__img {
         padding: 5% 0% 0% 2%;
     }
-    
+
     .contenido{
         gap: 288px;
     }
